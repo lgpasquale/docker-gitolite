@@ -2,9 +2,15 @@
 
 cd /home/gitolite
 
+# If the environment variable GITOLITE_GID is set
+# change the gid of user gitolite
+if [ -n "${GITOLITE_GID}" ]; then
+    groupmod -g ${GITOLITE_GID} gitolite
+fi
+
 # If .ssh has been mounted, ensure it has the right permissions
 if [ -d ./.ssh ]; then
-   chown -R git:git ./.ssh
+   chown -R gitolite:gitolite ./.ssh
 fi
 
 # Always make sure the git user has a private key you may
