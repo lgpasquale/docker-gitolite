@@ -7,6 +7,7 @@ cd /home/gitolite
 if [ -n "${GITOLITE_GID}" ]; then
     groupmod -g ${GITOLITE_GID} gitolite
 fi
+chown -R gitolite:gitolite /home/gitolite
 
 # If .ssh has been mounted, ensure it has the right permissions
 if [ -d ./.ssh ]; then
