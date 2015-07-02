@@ -88,6 +88,15 @@ else
     su gitolite -c "bin/gitolite setup"
 fi
 
+# If there is a volume mounted at /home/gitolite/hooks-common
+# copy these hooks to .gitolite/hooks/common and run gitolite setup
+if [ -d hooks-common ]; then
+    for f in hooks-common/*; do
+        cp $f .gitolite/hooks/common
+    done
+    su gitolite -c "bin/gitolite setup"
+fi
+
 echo "Executing $*"
 exec $*
 
