@@ -31,7 +31,7 @@ if [ ! -f ./.ssh/known_hosts ]; then
     fi
 fi
 
-if [ ! -d ./.gitolite ] ; then
+if [ ! -d ./.gitolite/conf ] ; then
    # if there is an existing repositories/ folder, it must
    # have been bind-mounted; we need to make sure it has the
    # correct access permissions.
